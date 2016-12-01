@@ -3,6 +3,7 @@ port     = 6379
 key      = "hoge"
 database = 0
 
+# MIME形式の判定
 class String
   def is_js?
     self.split(".")[-1] == "js"
@@ -19,8 +20,8 @@ end
 rds = Redis.new host, port
 rds.select database
 
+# HTTPサーバーを初期化する。
 server = SimpleHttpServer.new({
-
   :server_ip => "0.0.0.0",
   :port  =>  8000,
   :document_root => "./",
@@ -38,6 +39,7 @@ end
 server.location "/glsl" do |r|
   puts "/glsl"
   if r.method == "POST"
+    # POSTの場合、RedisにPOSTされたJSONにジョブIDを付けて登録する。
     h = {
       :body => r.body
     }
@@ -46,6 +48,7 @@ server.location "/glsl" do |r|
     rds.rpush "myglsllist", JSON.generate(h)
     server.response_body = h.to_json
   else
+    # GETの場合は、あたりさわりのない返事をする。
     server.response_body = "Hello mruby World at '#{r.path}'\n"
     server.response_body += r.inspect + "\n"
   end

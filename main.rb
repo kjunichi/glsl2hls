@@ -1,3 +1,4 @@
+# Redisの接続情報を設定する。
 host     = "127.0.0.1"
 port = 6379
 database = 0
@@ -26,11 +27,12 @@ EOT
   puts "doConvert end"
 end
 
-
+# RedisにGLSLコードの登録が無いかを監視する。
 while true
   job = r.lpop "myglsllist"
   if(job != nil)
      doConvert(r,job)
   end
-Sleep::usleep(30000)
+  # ウェイト
+  Sleep::usleep(30000)
 end
