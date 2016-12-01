@@ -1,0 +1,29 @@
+<html>
+<body>
+  <textarea id="fshader">
+#ifdef GL_ES
+precision mediump float;
+#endif
+uniform float time;
+void main(void){
+      gl_FragColor = vec4(sin(time), cos(time), 0.4, 1.0);
+}
+  </textarea>
+  <textarea id="vshader">
+#ifdef GL_ES
+precision mediump float;
+#endif
+attribute vec3 position;
+void main() {
+  gl_Position = vec4( position, 1.0 );
+}
+  </textarea>
+  <button id="btnRun">Run</button>
+  <script src="main.js"></script>
+  <form method="POST" action="/glsl">
+    <input type="submit">
+    <input type="text" name="p1" value="test">
+  </form>
+  <video id="out" autoplay="true" controls="true"></video>
+</body>
+</html>
