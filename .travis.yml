@@ -23,7 +23,6 @@ script:
   - mkdir -p ~$HOME/local/lib
   - git clone https://github.com/glfw/glfw.git
   - cd glfw
-  - git checkout glew-2.0.0
   - mkdir build
   - cd build
   - cmake -DBUILD_SHARED_LIBS=ON ..
@@ -33,6 +32,7 @@ script:
   - cd ../..
   - git clone https://github.com/nigels-com/glew.git
   - cd glew
+  - git checkout glew-2.0.0
   - export GLEW_DEST=$HOME/local
   - make
   - make install
