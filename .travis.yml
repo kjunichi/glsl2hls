@@ -18,6 +18,8 @@ addons:
       
 install:
   - npm install -g mocha
+  - git clone https://github.com/eddieantonio/imgcat
+  - cd imgcat;CC=clang make;cd ..
 
 script:
   - mkdir -p $HOME/local/lib
@@ -45,3 +47,6 @@ script:
   - export CFLAGS=-I$HOME/local/include
   - export LDFLAGS="-L$HOME/local/lib -L$HOME/local/lib64"
   - rake
+  - cd ..
+  - mruby/bin/mruby test/test.rb > test.png
+  - imgcat/src/imgcat --width 90 test.png
