@@ -20,7 +20,8 @@ install:
   - npm install -g mocha
 
 script:
-  - mkdir -p ~$HOME/local/lib
+  - mkdir -p $HOME/local/lib
+  - mkdir $HOME/local/include
   - git clone https://github.com/glfw/glfw.git
   - cd glfw
   - mkdir build
