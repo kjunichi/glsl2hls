@@ -42,5 +42,5 @@ script:
   - cd mruby
   - cp -f ../build_config.rb .
   - export CLFAGS=-I$HOME/local/include
-  - ls -l $HOME/local/include
+  - ls -l $HOME/local/include/GL
   - rake
