@@ -1,0 +1,11 @@
+language: cpp
+node_js:
+ - "6"
+
+services:
+  - redis-server
+addons:
+  apt:
+    packages:
+      - xvfb
+      - imagemagick
