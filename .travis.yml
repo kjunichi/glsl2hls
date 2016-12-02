@@ -32,7 +32,8 @@ script:
   - cd ../..
   - git clone https://github.com/nigels-com/glew.git
   - cd glew
-  - GLEW_DEST=$HOME/local make
+  - export GLEW_DEST=$HOME/local
+  - make
   - make install
   - cd ..
   - git clone https://github.com/mruby/mruby.git
