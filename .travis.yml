@@ -41,5 +41,6 @@ script:
   - git clone https://github.com/mruby/mruby.git
   - cd mruby
   - cp -f ../build_config.rb .
-  - export CLFAGS=-I~/local/include
+  - export CLFAGS=-I$HOME/local/include
+  - ls -l $HOME/local/include
   - rake
