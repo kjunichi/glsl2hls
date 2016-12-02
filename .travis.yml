@@ -6,6 +6,8 @@ services:
   - redis-server
 addons:
   apt:
+    sources:
+      - kubuntu-backports
     packages:
       - xvfb
       - cmake
