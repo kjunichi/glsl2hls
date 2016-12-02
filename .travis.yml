@@ -20,6 +20,7 @@ install:
   - npm install -g mocha
 
 script:
+  - mkdir -p ~/local
   - git clone https://github.com/glfw/glfw.git
   - cd glfw
   - mkdir build
@@ -30,9 +31,10 @@ script:
   - cd ../..
   - git clone https://github.com/nigels-com/glew.git
   - cd glew
-  - make
+  - GLEW_DEST=~/local make
+  - make install
   - cd ..
   - git clone https://github.com/mruby/mruby.git
   - cd mruby
   - cp -f ../build_config.rb .
-  - rake
+  - CLFAGS=-I~/local/include rake
