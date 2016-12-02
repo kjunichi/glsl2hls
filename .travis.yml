@@ -23,6 +23,7 @@ script:
   - mkdir -p ~$HOME/local/lib
   - git clone https://github.com/glfw/glfw.git
   - cd glfw
+  - git checkout glew-2.0.0
   - mkdir build
   - cd build
   - cmake -DBUILD_SHARED_LIBS=ON ..
@@ -39,4 +40,5 @@ script:
   - git clone https://github.com/mruby/mruby.git
   - cd mruby
   - cp -f ../build_config.rb .
-  - CLFAGS=-I~/local/include rake
+  - export CLFAGS=-I~/local/include
+  - rake
