@@ -43,5 +43,5 @@ script:
   - cd mruby
   - cp -f ../build_config.rb .
   - export CFLAGS=-I$HOME/local/include
-  - export LDFLAGS=-L$HOME/local/lib
+  - export LDFLAGS="-L$HOME/local/lib -L$HOME/local/lib64"
   - rake
