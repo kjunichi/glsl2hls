@@ -20,18 +20,19 @@ install:
   - npm install -g mocha
 
 script:
-  - mkdir -p ~/local
+  - mkdir -p ~$HOME/local/lib
   - git clone https://github.com/glfw/glfw.git
   - cd glfw
   - mkdir build
   - cd build
   - cmake -DBUILD_SHARED_LIBS=ON ..
   - cmake --build .
-  - ls -lR
+  - cp -r ../include/GLFW $HOME/local/include
+  - cp src/libglfw.so* $HOME/local/lib
   - cd ../..
   - git clone https://github.com/nigels-com/glew.git
   - cd glew
-  - GLEW_DEST=~/local make
+  - GLEW_DEST=$HOME/local make
   - make install
   - cd ..
   - git clone https://github.com/mruby/mruby.git
