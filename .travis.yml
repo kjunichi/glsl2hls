@@ -20,6 +20,8 @@ install:
   - npm install -g mocha
   - git clone https://github.com/eddieantonio/imgcat
   - cd imgcat;CC=clang make;cd ..
+  - export DISPLAY=':99.0'
+  - Xvfb :99 -screen 0 640x480x24 > /dev/null 2>&1 &
 
 script:
   - mkdir -p $HOME/local/lib
