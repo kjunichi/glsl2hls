@@ -48,5 +48,6 @@ script:
   - export LDFLAGS="-L$HOME/local/lib -L$HOME/local/lib64"
   - rake
   - cd ..
+  - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/lib:$HOME/local/lib64
   - mruby/bin/mruby test/test.rb > test.png
   - imgcat/src/imgcat --width 90 test.png
