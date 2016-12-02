@@ -8,12 +8,21 @@ addons:
   apt:
     packages:
       - xvfb
+      - cmake
       - imagemagick
 
 install:
   - npm install -g mocha
 
 script:
+  - git clone https://github.com/glfw/glfw.git
+  - cd glfw
+  - mkdir build
+  - cd build
+  - cmake -DBUILD_SHARED_LIBS=ON ..
+  - cmake --build .
+  - ls -lR
+  - cd ..
   - git clone https://github.com/mruby/mruby.git
   - cd mruby
   - cp -f ../build_config.rb .
