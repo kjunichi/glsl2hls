@@ -34,6 +34,7 @@ script:
   - cd glew
   - git checkout glew-2.0.0
   - export GLEW_DEST=$HOME/local
+  - make extensions
   - make
   - make install
   - cd ..
