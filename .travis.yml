@@ -9,3 +9,6 @@ addons:
     packages:
       - xvfb
       - imagemagick
+
+install:
+  npm install -g mocha
