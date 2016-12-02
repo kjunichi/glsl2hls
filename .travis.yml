@@ -12,7 +12,10 @@ addons:
       - xvfb
       - cmake
       - imagemagick
-
+      - dos2unix
+      - libosmesa6-dev
+      - libegl1-mesa-dev
+      
 install:
   - npm install -g mocha
 
@@ -24,6 +27,10 @@ script:
   - cmake -DBUILD_SHARED_LIBS=ON ..
   - cmake --build .
   - ls -lR
+  - cd ../..
+  - git clone https://github.com/nigels-com/glew.git
+  - cd glew
+  - make
   - cd ..
   - git clone https://github.com/mruby/mruby.git
   - cd mruby
