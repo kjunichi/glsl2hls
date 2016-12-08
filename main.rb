@@ -23,7 +23,7 @@ ffmpeg -y -f ppm_pipe \
 -segment_time 8 -segment_list_size 3 -segment_list_flags +live -threads 4 static/#{h["Id"]}%03d.ts
 EOT
 
-  `bin/mruby glsl2ppm.rb #{h["Id"]}`
+  `mruby/bin/mruby glsl2ppm.rb #{h["Id"]}`
   puts "doConvert end"
 end
 

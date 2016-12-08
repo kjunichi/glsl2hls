@@ -1,6 +1,6 @@
 host     = "127.0.0.1"
 port     = 6379
-key      = "hoge"
+
 database = 0
 
 # MIME形式の判定
@@ -22,7 +22,7 @@ rds.select database
 
 # HTTPサーバーを初期化する。
 server = SimpleHttpServer.new({
-  :server_ip => "0.0.0.0",
+  :server_ip => '0.0.0.0',
   :port  =>  8000,
   :document_root => "./",
   :debug => false,
@@ -31,7 +31,7 @@ server = SimpleHttpServer.new({
 server.http do |r|
   p r
   server.set_response_headers({
-    "Server" => "my-mruby-simplehttpserver",
+    'Server' => 'my-mruby-simplehttpserver',
     "Date" => server.http_date,
   })
 end
