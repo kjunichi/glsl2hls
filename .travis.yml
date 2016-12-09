@@ -58,6 +58,7 @@ script:
   - imgcat/src/imgcat --width 90 test.jpg
   - for num in `seq 10 90`; do cp test.ppm static/test$num.ppm ;done
   - ls -l static
+  - sh test/testFfmpeg.sh
   - mruby/bin/mruby web.rb &
   - mruby/bin/mruby main.rb &
   - mocha --reporter spec --timeout 15000
