@@ -48,6 +48,12 @@ describe('GLSL start page.', () => {
           console.log(result)
           //console.log(result.src)
           assert.notEqual(0, result.length)
+          console.log(process.cwd())
+          const exec = require('child_process').exec;
+          exec('ls -la ./', (err, stdout, stderr) => {
+          if (err) { console.log(err); }
+            console.log(stdout);
+          });
           const filePath = result.replace('http://localhost:8000/','../')
           const m3u8 = fs.readFileSync(filePath, 'utf8')
           console.log(m3u8)
