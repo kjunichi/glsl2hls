@@ -8,6 +8,7 @@ const Nightmare = require('nightmare')
 
 describe('GLSL start page.', () => {
   let nightmare;
+  let m3u8FilePath;
   
   beforeEach(()=> {
     // runs before each test in this block
@@ -53,10 +54,10 @@ describe('GLSL start page.', () => {
           exec('ls -la ./static', (err, stdout, stderr) => {
             if (err) { console.log(err) }
             console.log(stdout);
-            const filePath = result.replace('http://localhost:8000/','./')
-            console.log(filePath)
-            const m3u8 = fs.readFileSync(filePath, 'utf8')
-            console.log(m3u8)
+            m3u8FilePath = result.replace('http://localhost:8000/','./')
+            console.log(m3u8FilePath)
+            //const m3u8 = fs.readFileSync(filePath, 'utf8')
+            //console.log(m3u8)
             done()
           });
           
@@ -65,6 +66,18 @@ describe('GLSL start page.', () => {
           console.error('render GLSL failed:', error);
           done()
         })
+    })
+    it('shoud create m3u8' (done)=>{
+      setTimeout(()=>{
+        exec('ls -la ./static', (err, stdout, stderr) => {
+            if (err) { console.log(err) }
+            console.log(stdout);
+            
+            //const m3u8 = fs.readFileSync(m3u8FilePath, 'utf8')
+            //console.log(m3u8)
+            done()
+          });
+      },14000)
     })
   })
 })
