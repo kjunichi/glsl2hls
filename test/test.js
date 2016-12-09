@@ -67,7 +67,7 @@ describe('GLSL start page.', () => {
           done()
         })
     })
-    it('shoud create m3u8' (done)=>{
+    it('shoud create m3u8', (done)=>{
       setTimeout(()=>{
         exec('ls -la ./static', (err, stdout, stderr) => {
             if (err) { console.log(err) }
