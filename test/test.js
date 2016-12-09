@@ -18,15 +18,16 @@ describe('GLSL start page.', () => {
           return document.body.innerHTML
         },(result) => {
           console.log(`result = ${result}`)
-          assert.equal('html',result)
-          done()
+          assert.notEqual(-1,result.indexOf('button ')
         })
         .end()
         .then(function (result) {
           console.log(result)
+          done()
         })
         .catch(function (error) {
           console.error('index.htlm failed:', error);
+          done()
         })
   
     })
