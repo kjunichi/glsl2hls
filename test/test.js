@@ -50,7 +50,7 @@ describe('GLSL start page.', () => {
           assert.notEqual(0, result.length)
           console.log(process.cwd())
           const exec = require('child_process').exec;
-          exec('ls -la ./', (err, stdout, stderr) => {
+          exec('ls -la ./static', (err, stdout, stderr) => {
             if (err) { console.log(err) }
             console.log(stdout);
             const filePath = result.replace('http://localhost:8000/','./')
