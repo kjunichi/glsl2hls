@@ -3,6 +3,7 @@
 // https://github.com/kjunichi/glsl2hls/blob/master/LICENSE
 
 const fs = require('fs')
+const exec = require('child_process').exec
 const assert = require('assert')
 const Nightmare = require('nightmare')
 
@@ -50,7 +51,7 @@ describe('GLSL start page.', () => {
           //console.log(result.src)
           assert.notEqual(0, result.length)
           console.log(process.cwd())
-          const exec = require('child_process').exec;
+          
           exec('ls -la ./static', (err, stdout, stderr) => {
             if (err) { console.log(err) }
             console.log(stdout);
