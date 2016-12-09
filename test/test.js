@@ -18,7 +18,7 @@ describe('GLSL start page.', () => {
           return document.body.innerHTML
         },(result) => {
           console.log(`result = ${result}`)
-          assert.notEqual(-1,result.indexOf('button ')
+          assert.notEqual(-1,result.indexOf('button '))
         })
         .end()
         .then(function (result) {
