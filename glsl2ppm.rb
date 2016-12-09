@@ -5,14 +5,14 @@ database = 0
 
 log = Fluent::Logger.new(nil, protocol: 'tcp', host: '127.0.0.1', port: '24224')
 
-r = Redis.new host, port
-r.select database
+rds = Redis.new host, port
+rds.select database
 
 # ジョブIDを引数でもらう。
 jobId = ARGV[0]
 
 # RedisからジョブIDを指定して該当のGLSLコードを取得する。
-shader = r.get jobId
+shader = rds.get jobId
 h = JSON.parse(shader)
 
 # GLSLを生成、Vertex,Fragmentそれぞれのシェーダープログラムを登録する。
@@ -33,7 +33,7 @@ ffmpeg -y -f ppm_pipe \
     -segment_time 8 -segment_list_size 3 -segment_list_flags +live -threads 4 static/#{h['Id']}%03d.ts
 EOT
 
-IO.pipe do |r2, w|
+IO.pipe do |r, w|
   IO.popen("#{ffmpegCmd} 2>&1", 'w', err: w) do |pipe|
     # 秒間24フレームで15秒作成する。
     (24 * 15).times do |_i|
@@ -44,6 +44,5 @@ IO.pipe do |r2, w|
     w.close
   end
   # ffmpegの標準出力、エラー出力をfluentdへ投げる
-  log.post('glsl2ppm', 'log' => r2.read)
+  log.post('glsl2ppm', 'log' => r.read)
 end
-# end
