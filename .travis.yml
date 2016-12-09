@@ -56,6 +56,8 @@ script:
   - mruby/bin/mruby test/test.rb > test.ppm
   - convert test.ppm test.jpg
   - imgcat/src/imgcat --width 90 test.jpg
+  - for num in `seq 10 90`; do cp test.ppm static/test$num.ppm ;done
+  - ls -l static
   - mruby/bin/mruby web.rb &
   - mruby/bin/mruby main.rb &
   - mocha --reporter spec --timeout 15000
