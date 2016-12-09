@@ -62,6 +62,7 @@ install:
   - cd ..
   
 script:
+  - export PATH=$PATH:$HOME/local/bin
   - export CFLAGS=-I$HOME/local/include
   - export LDFLAGS="-L$HOME/local/lib -L$HOME/local/lib64"
   - rake
