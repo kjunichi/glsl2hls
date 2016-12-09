@@ -17,6 +17,8 @@ addons:
       - libegl1-mesa-dev
       
 install:
+  - nvm install 6
+  - nvm use 6
   - npm install -g mocha
   - npm install -g nightmare
   - git clone https://github.com/eddieantonio/imgcat
