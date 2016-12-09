@@ -2,7 +2,7 @@ cat static/test*.ppm|ffmpeg -y \
     -f image2pipe -r 24 -i - \
     -f ssegment -segment_format mpegts -s 320x240 -r 24 -vcodec libx264 \
     -pix_fmt yuv420p \
-    -flags +loop-global_header -bsf h264_mp4toannexb \
+    -flags +loop-global_header  \
     -strict experimental \
     -segment_list static/test.m3u8 \
     -break_non_keyframes 1 -segment_list_type hls \
