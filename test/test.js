@@ -41,14 +41,13 @@ describe('GLSL start page.', () => {
       nightmare.click('#btnRun')
         .wait(9000)
         .evaluate(()=>{
-            return document.body.innerHTML
+            return document.getElementById('out').src
         })
         .end()
         .then((result) => {
-          console.dir(result)
-          console.log(result.src)
-          assert.notEqual(0, result.src.length)
-          console.log(`result.src = ${result.src}`)
+          console.log(result)
+          //console.log(result.src)
+          assert.notEqual(0, result.length)
           done()
         })
         .catch((error) => {
