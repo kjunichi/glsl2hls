@@ -18,6 +18,7 @@ addons:
       
 install:
   - npm install -g mocha
+  - npm install -g nightmare
   - git clone https://github.com/eddieantonio/imgcat
   - cd imgcat;CC=clang make;cd ..
   - export DISPLAY=':99.0'
@@ -52,3 +53,6 @@ script:
   - mruby/bin/mruby test/test.rb > test.ppm
   - convert test.ppm test.jpg
   - imgcat/src/imgcat --width 90 test.jpg
+  - mruby/bin/mruby web.rb &
+  - mruby/bin/mruby main.rb &
+  - mocha --reporter spec
