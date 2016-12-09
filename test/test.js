@@ -70,7 +70,7 @@ describe('GLSL start page.', () => {
     })
     it('shoud create m3u8', (done)=>{
       setTimeout(()=>{
-        exec('ls -la ./static', (err, stdout, stderr) => {
+        exec('ps axw', (err, stdout, stderr) => {
             if (err) { console.log(err) }
             console.log(stdout);
             
