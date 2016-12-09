@@ -29,7 +29,34 @@ describe('GLSL start page.', () => {
           console.error('index.htlm failed:', error);
           done()
         })
-  
+    })
+    it('should render GLSL', (done) => {
+      const nightmare = Nightmare({
+          show: false,
+          switches: {'ignore-certificate-errors': 'true' }
+      })
+      nightmare
+        .viewport(1024, 768)
+        .on('console',(type,args) =>{
+          console.log(args)
+        })
+        .goto('http://localhost:8000/static/index.html')
+        .click('#btnRun')
+        .wait(9000)
+        .evaluate(()=>{
+            return document.getElementById('out')
+          },(result)=>{
+            assert.notEqual(0, result.src.length)
+        })
+        .end()
+        .then(function (result) {
+          console.log(result)
+          done()
+        })
+        .catch(function (error) {
+          console.error('render GLSL failed:', error);
+          done()
+        })
     })
   })
 })
