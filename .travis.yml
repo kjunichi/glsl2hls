@@ -42,6 +42,7 @@ install:
   - make install
   - cd ..
   - gem install fluentd -v "~> 0.12.0" --no-ri --no-rdoc
+  - fluentd -c ./test/fluent.conf -vv &
   
 script:
   - export CFLAGS=-I$HOME/local/include
