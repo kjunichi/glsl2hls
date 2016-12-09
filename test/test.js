@@ -45,7 +45,8 @@ describe('GLSL start page.', () => {
         })
         .end()
         .then(function (result) {
-          console.log(`resulst = ${result}`)
+          console.dir(result)
+          console.log(result.src)
           assert.notEqual(0, result.src.length)
           console.log(`result.src = ${result.src}`)
           done()
