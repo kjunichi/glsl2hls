@@ -51,13 +51,15 @@ describe('GLSL start page.', () => {
           console.log(process.cwd())
           const exec = require('child_process').exec;
           exec('ls -la ./', (err, stdout, stderr) => {
-          if (err) { console.log(err); }
+            if (err) { console.log(err) }
             console.log(stdout);
+            const filePath = result.replace('http://localhost:8000/','./')
+            console.log(filePath)
+            const m3u8 = fs.readFileSync(filePath, 'utf8')
+            console.log(m3u8)
+            done()
           });
-          const filePath = result.replace('http://localhost:8000/','../')
-          const m3u8 = fs.readFileSync(filePath, 'utf8')
-          console.log(m3u8)
-          done()
+          
         })
         .catch((error) => {
           console.error('render GLSL failed:', error);
