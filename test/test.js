@@ -42,6 +42,7 @@ describe('GLSL start page.', () => {
             return document.getElementById('out')
           },(result)=>{
             assert.notEqual(0, result.src.length)
+            console.log(`result.src = ${result.src}`)
         })
         .end()
         .then(function (result) {
