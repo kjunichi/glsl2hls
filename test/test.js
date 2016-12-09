@@ -48,6 +48,9 @@ describe('GLSL start page.', () => {
           console.log(result)
           //console.log(result.src)
           assert.notEqual(0, result.length)
+          const filePath = result.replace('http://localhost:8000/','')
+          const m3u8 = fs.readFileSync(filePath, 'utf8')
+          console.log(m3u8)
           done()
         })
         .catch((error) => {
