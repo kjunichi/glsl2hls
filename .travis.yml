@@ -15,6 +15,7 @@ addons:
       - dos2unix
       - libosmesa6-dev
       - libegl1-mesa-dev
+      - ffmpeg
       
 install:
   - nvm install 6
