@@ -1,6 +1,6 @@
-# Copyright (c) 2016 Junichi Kajiwara
-# Released under the MIT license
-# https://github.com/kjunichi/glsl2hls/blob/master/LICENSE
+// Copyright (c) 2016 Junichi Kajiwara
+// Released under the MIT license
+// https://github.com/kjunichi/glsl2hls/blob/master/LICENSE
 
 const fs = require('fs')
 const assert = require('assert')
