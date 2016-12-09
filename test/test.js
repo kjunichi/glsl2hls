@@ -41,17 +41,17 @@ describe('GLSL start page.', () => {
       nightmare.click('#btnRun')
         .wait(9000)
         .evaluate(()=>{
-            return document.getElementById('out')
+            return document.body.innerHTML
         })
         .end()
-        .then(function (result) {
+        .then((result) => {
           console.dir(result)
           console.log(result.src)
           assert.notEqual(0, result.src.length)
           console.log(`result.src = ${result.src}`)
           done()
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.error('render GLSL failed:', error);
           done()
         })
