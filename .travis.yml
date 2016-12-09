@@ -58,5 +58,5 @@ script:
   - imgcat/src/imgcat --width 90 test.jpg
   - mruby/bin/mruby web.rb &
   - mruby/bin/mruby main.rb &
-  - mocha --reporter spec
+  - mocha --reporter spec --timeout 15000
   - killall -TERM ruby
