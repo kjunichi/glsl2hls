@@ -39,6 +39,7 @@ IO.pipe do |r, w|
     (24 * 15).times do |_i|
       # GLSLをレンダリングする
       pipe.puts glsl.render
+      log.post('glsl2ppm', 'log' => "#{i} : done!")
     end
     # ffmpegへの書き込みパイプを閉じる。
     w.close
