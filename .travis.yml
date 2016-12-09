@@ -24,6 +24,7 @@ addons:
       - texinfo 
       - zlib1g-dev
       - yasm
+      - libx264-dev
       
 install:
   - nvm install 6
@@ -58,7 +59,7 @@ install:
   - wget http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
   - tar xjvf ffmpeg-snapshot.tar.bz2
   - cd ffmpeg
-  - ./configure --prefix=$HOME/local && make && make install
+  - ./configure --prefix=$HOME/local --enable-gpl --enable-libx264 && make && make install
   - cd ..
   
 script:
