@@ -16,6 +16,7 @@ addons:
       - libosmesa6-dev
       - libegl1-mesa-dev
       - ffmpeg
+      - avconv
       
 install:
   - nvm install 6
