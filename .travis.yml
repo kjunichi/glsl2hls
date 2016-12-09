@@ -20,7 +20,7 @@ install:
   - nvm install 6
   - nvm use 6
   - npm install -g mocha
-  - npm install -g nightmare
+  - npm install nightmare
   - git clone https://github.com/eddieantonio/imgcat
   - cd imgcat;CC=clang make;cd ..
   - export DISPLAY=':99.0'
