@@ -1,3 +1,7 @@
+# Copyright (c) 2016 Junichi Kajiwara
+# Released under the MIT license
+# https://github.com/kjunichi/glsl2hls/blob/master/LICENSE
+
 # Redisの設定
 host = '127.0.0.1'
 port = 6379
@@ -38,8 +42,9 @@ IO.pipe do |r, w|
     # 秒間24フレームで15秒作成する。
     (24 * 15).times do |_i|
       # GLSLをレンダリングする
+      log.post('glsl2ppm', 'log' => "#{_i} : start")
       pipe.puts glsl.render
-      log.post('glsl2ppm', 'log' => "#{i} : done!")
+      log.post('glsl2ppm', 'log' => "#{_i} : done!")
     end
     # ffmpegへの書き込みパイプを閉じる。
     w.close
