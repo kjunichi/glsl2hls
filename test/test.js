@@ -1,3 +1,7 @@
+# Copyright (c) 2016 Junichi Kajiwara
+# Released under the MIT license
+# https://github.com/kjunichi/glsl2hls/blob/master/LICENSE
+
 const fs = require('fs')
 const assert = require('assert')
 const Nightmare = require('nightmare')
@@ -26,12 +30,12 @@ describe('GLSL start page.', () => {
           assert.notEqual(-1,result.indexOf('button '))
         })
         .end()
-        .then(function (result) {
+        .then((result) => {
           console.log(result)
           done()
         })
-        .catch(function (error) {
-          console.error('index.htlm failed:', error);
+        .catch((error) => {
+          console.error('index.htlm failed:', error)
           done()
         })
     })
@@ -44,12 +48,12 @@ describe('GLSL start page.', () => {
             console.log(`resulst = ${result}`)
             assert.notEqual(0, result.src.length)
             console.log(`result.src = ${result.src}`)
-            done()
+            
         })
         .end()
         .then(function (result) {
           console.log(result)
-          
+          done()
         })
         .catch(function (error) {
           console.error('render GLSL failed:', error);
