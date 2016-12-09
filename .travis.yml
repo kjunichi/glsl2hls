@@ -22,9 +22,7 @@ install:
   - cd imgcat;CC=clang make;cd ..
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 640x480x24 > /dev/null 2>&1 &
-
-script:
-  - mkdir -p $HOME/local/lib
+    - mkdir -p $HOME/local/lib
   - mkdir $HOME/local/include
   - git clone https://github.com/glfw/glfw.git
   - cd glfw
@@ -43,13 +41,11 @@ script:
   - make
   - make install
   - cd ..
-  - git clone https://github.com/mruby/mruby.git
-  - cd mruby
-  - cp -f ../build_config.rb .
-  - export CFLAGS=-I$HOME/local/include
+script:
+
+- export CFLAGS=-I$HOME/local/include
   - export LDFLAGS="-L$HOME/local/lib -L$HOME/local/lib64"
   - rake
-  - cd ..
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/lib:$HOME/local/lib64
   - mruby/bin/mruby test/test.rb > test.ppm
   - convert test.ppm test.jpg
