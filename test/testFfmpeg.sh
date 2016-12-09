@@ -1,5 +1,5 @@
 cat static/test*.ppm|ffmpeg -y \
-    -f ppm -r 24 -i - \
+    -f image2pipe　-vcodec png -r 24 -i - \
     -f ssegment -segment_format mpegts -s 320x240 -r 24 -c:v libx264 \
     -pix_fmt yuv420p \
     -flags +loop-global_header -bsf h264_mp4toannexb \
