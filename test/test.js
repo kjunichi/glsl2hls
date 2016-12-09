@@ -16,7 +16,8 @@ describe('GLSL start page.', () => {
       .goto('http://localhost:8000/static/index.html')
       .evaluate(()=>{
         return document.body.innerHTML
-      },(resulst) => {
+      },(result) => {
+        console.log(`result = ${result}`)
         assert.equal('html',result)
       })
       .end()
