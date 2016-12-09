@@ -1,3 +1,7 @@
+# Copyright (c) 2016 Junichi Kajiwara
+# Released under the MIT license
+# https://github.com/kjunichi/glsl2hls/blob/master/LICENSE
+
 # Redisの接続情報を設定する。
 host     = "127.0.0.1"
 port = 6379
