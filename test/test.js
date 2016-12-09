@@ -25,13 +25,11 @@ describe('GLSL start page.', () => {
     it('should index.html', (done) => {
         nightmare.evaluate(()=>{
           return document.body.innerHTML
-        },(result) => {
-          console.log(`result = ${result}`)
-          assert.notEqual(-1,result.indexOf('button '))
         })
         .end()
         .then((result) => {
-          console.log(result)
+          console.log(`result = ${result}`)
+          assert.notEqual(-1,result.indexOf('button '))
           done()
         })
         .catch((error) => {
@@ -44,15 +42,12 @@ describe('GLSL start page.', () => {
         .wait(9000)
         .evaluate(()=>{
             return document.getElementById('out')
-          },(result)=>{
-            console.log(`resulst = ${result}`)
-            assert.notEqual(0, result.src.length)
-            console.log(`result.src = ${result.src}`)
-            
         })
         .end()
         .then(function (result) {
-          console.log(result)
+          console.log(`resulst = ${result}`)
+          assert.notEqual(0, result.src.length)
+          console.log(`result.src = ${result.src}`)
           done()
         })
         .catch(function (error) {
