@@ -29,7 +29,7 @@ server = SimpleHttpServer.new({
 })
 
 server.http do |r|
-  p r
+  # p r
   server.set_response_headers({
     'Server' => 'my-mruby-simplehttpserver',
     "Date" => server.http_date,
@@ -84,6 +84,5 @@ server.location "/static/" do |r|
     server.create_response 503
   end
 end
-
 
 server.run
