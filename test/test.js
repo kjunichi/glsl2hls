@@ -41,13 +41,15 @@ describe('GLSL start page.', () => {
         .evaluate(()=>{
             return document.getElementById('out')
           },(result)=>{
+            console.log(`resulst = ${result}`)
             assert.notEqual(0, result.src.length)
             console.log(`result.src = ${result.src}`)
+            done()
         })
         .end()
         .then(function (result) {
           console.log(result)
-          done()
+          
         })
         .catch(function (error) {
           console.error('render GLSL failed:', error);
