@@ -23,6 +23,7 @@ addons:
       - pkg-config 
       - texinfo 
       - zlib1g-dev
+      - yasm
       
 install:
   - nvm install 6
