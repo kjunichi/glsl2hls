@@ -15,8 +15,14 @@ addons:
       - dos2unix
       - libosmesa6-dev
       - libegl1-mesa-dev
-      - ffmpeg
-      - avconv
+      - libass-dev
+      - libfreetype6-dev
+      - libtheora-dev
+      - libtool
+      - libvorbis-dev
+      - pkg-config 
+      - texinfo 
+      - zlib1g-dev
       
 install:
   - nvm install 6
@@ -48,6 +54,11 @@ install:
   - cd ..
   - gem install fluentd -v "~> 0.12.0" --no-ri --no-rdoc
   - fluentd -c ./test/fluent.conf -vv &
+  - wget http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
+  - tar xjvf ffmpeg-snapshot.tar.bz2
+  - cd ffmpeg
+  - ./configure --prefix=$HOME/local && make && make install
+  - cd ..
   
 script:
   - export CFLAGS=-I$HOME/local/include
