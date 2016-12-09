@@ -58,4 +58,4 @@ script:
   - mruby/bin/mruby web.rb &
   - mruby/bin/mruby main.rb &
   - mocha --reporter spec
-  - killall fluentd
+  - killall -TERM ruby
