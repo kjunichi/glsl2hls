@@ -1,20 +1,25 @@
-const assert = require('assert');
+const fs = require('fs')
+const assert = require('assert')
 const Nightmare = require('nightmare')
 
 describe('GLSL start page.', () => {
-  describe('index.html', () => {
-    it('should index.html', (done) => {
-      const nightmare = Nightmare({
+  let nightmare;
+  
+  beforeEach(()=> {
+    // runs before each test in this block
+    nightmare = Nightmare({
           show: false,
           switches: {'ignore-certificate-errors': 'true' }
-      })
-      nightmare
-        .viewport(1024, 768)
+    })
+    nightmare.viewport(1024, 768)
         .on('console',(type,args) =>{
           console.log(args)
         })
         .goto('http://localhost:8000/static/index.html')
-        .evaluate(()=>{
+  });
+  describe('index.html', () => {
+    it('should index.html', (done) => {
+        nightmare.evaluate(()=>{
           return document.body.innerHTML
         },(result) => {
           console.log(`result = ${result}`)
@@ -31,17 +36,7 @@ describe('GLSL start page.', () => {
         })
     })
     it('should render GLSL', (done) => {
-      const nightmare = Nightmare({
-          show: false,
-          switches: {'ignore-certificate-errors': 'true' }
-      })
-      nightmare
-        .viewport(1024, 768)
-        .on('console',(type,args) =>{
-          console.log(args)
-        })
-        .goto('http://localhost:8000/static/index.html')
-        .click('#btnRun')
+      nightmare.click('#btnRun')
         .wait(9000)
         .evaluate(()=>{
             return document.getElementById('out')
