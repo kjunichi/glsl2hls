@@ -59,7 +59,7 @@ install:
   - wget http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
   - tar xjf ffmpeg-snapshot.tar.bz2
   - cd ffmpeg
-  - ./configure --prefix=$HOME/local --enable-gpl --enable-libx264 | sed -ne '0~100p' && make && make install
+  - ./configure --prefix=$HOME/local --enable-gpl --enable-libx264 && make | sed -ne '0~100p' && make install
   - cd ..
   
 script:
